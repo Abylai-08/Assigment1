@@ -1,13 +1,23 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+public class Main {
+    public static void main(String[] args) {
+        Song song1 = new Song(1, "TER", 183);
+        Song song2 = new Song(2, "UADE", 253);
+        Artist artist = new Artist(1, "SHIZA", "RAP");
+        Playlist playlist = new Playlist(1, "AABB");
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+        System.out.println("Playlist: " + playlist.getPlaylistName());
+        System.out.println("Artist: " + artist.getName() + " (" + artist.getGenre() + ")");
+        System.out.println("Song 1: " + song1.getTitle() + ", duration: " + song1.getDuration());
+        System.out.println("Song 2: " + song2.getTitle() + ", duration: " + song2.getDuration());
+        song1.setTitle("Imagine (Remastered)");
+        System.out.println("Updated song title: " + song1.getTitle());
+
+        // сравнение объектов
+        if (song1.getDuration() > song2.getDuration()) {
+            System.out.println("Song 1 is longer");
+        } else {
+            System.out.println("Song 2 is longer");
+        }
+
+    }
 }
