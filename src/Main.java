@@ -14,7 +14,7 @@ public class Main {
 
         // сравнение объектов
         if (song1.getDuration() > song2.getDuration()) {
-            System.out.println("Song 1 is longer");
+            System.out.println("Song 1 is2 longer");
         } else {
             System.out.println("Song 2 is longer");
         }
