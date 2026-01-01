@@ -1,23 +1,44 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Song song1 = new Song(1, "TER", 183);
-        Song song2 = new Song(2, "UADE", 253);
-        Artist artist = new Artist(1, "SHIZA", "RAP");
-        Playlist playlist = new Playlist(1, "AABB");
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Playlist: " + playlist.getPlaylistName());
-        System.out.println("Artist: " + artist.getName() + " (" + artist.getGenre() + ")");
-        System.out.println("Song 1: " + song1.getTitle() + ", duration: " + song1.getDuration());
-        System.out.println("Song 2: " + song2.getTitle() + ", duration: " + song2.getDuration());
-        song1.setTitle("Imagine (Remastered)");
-        System.out.println("Updated song title: " + song1.getTitle());
+        Artist shiza = new Artist("SHIZA", "RAP");
+        Artist lennon = new Artist("Lennon", "Rock");
 
-        // сравнение объектов
-        if (song1.getDuration() > song2.getDuration()) {
-            System.out.println("Song 1 is2 longer");
+
+        Song song1 = new Song("TER", 183, shiza);
+        Song song2 = new Song("UADE", 253, shiza);
+        Song song3 = new Song("Imagine", 200, lennon);
+
+
+        Playlist playlist = new Playlist("TER", 183, shiza, "My Playlist");
+        playlist.addSong(song1);
+        playlist.addSong(song2);
+        playlist.addSong(song3);
+
+
+        System.out.println("Current playlist:");
+        System.out.println(playlist.showPlaylist());
+
+
+        System.out.print(" ");
+        int index = sc.nextInt();
+        sc.nextLine();
+
+        if (index >= 1 && index <= playlist.getSongs().size()) {
+            System.out.print(" ");
+            String newTitle = sc.nextLine();
+            playlist.getSongs().get(index - 1).setTitle(newTitle);
+
+            System.out.println("\nUpdated playlist:");
+            System.out.println(playlist.showPlaylist());
         } else {
-            System.out.println("Song 2 is longer");
+            System.out.println("Invalid song number!");
         }
 
+        sc.close();
     }
 }

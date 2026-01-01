@@ -1,31 +1,22 @@
 public class Song {
-
-    private int songId;
     private String title;
     private int duration;
+    private Artist artist;
 
-    public Song(int songId, String title, int duration) {
-        this.songId = songId;
+    public Song(String title, int duration, Artist artist) {
         this.title = title;
         this.duration = duration;
-    }
-    public int getSongId(int SongId){
-        return SongId;
-    }
-    public void setSongId(int songId){
-        this.songId = songId;
-    }
-    public String getTitle(){
-        return title;
-    }
-    public void setTitle(String title){
-        this.title = title;
-    }
-    public int getDuration(){
-        return duration;
+        this.artist = artist;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public int getDuration() { return duration; }
+
+    public Artist getArtist() { return artist; }
+
+    public String toString() {
+        return title + " (" + duration + " sec), Artist: " + artist.getName();
     }
 }
