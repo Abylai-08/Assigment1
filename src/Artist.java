@@ -1,35 +1,12 @@
 public class Artist {
-    private int artistId;
     private String name;
     private String genre;
 
-    public Artist(int artistId, String name, String genre){
-        this.artistId = artistId;
+    public Artist(String name, String genre) {
         this.name = name;
         this.genre = genre;
     }
 
-    public int getArtistId() {
-        return artistId;
-    }
-
-    public void setArtistId(int artistId) {
-        this.artistId = artistId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
+    public String getName() { return name; }
+    public String getGenre() { return genre; }
 }

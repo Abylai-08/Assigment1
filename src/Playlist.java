@@ -1,25 +1,25 @@
-public class Playlist {
-    private int playlistId;
+import java.util.ArrayList;
+
+public class Playlist extends Song {
     private String playlistName;
+    private ArrayList<Song> songs = new ArrayList<>();
 
-    public Playlist(int playlistId, String playlistName){
-        this.playlistId = playlistId;
+    public Playlist(String title, int duration, Artist artist, String playlistName) {
+        super(title, duration, artist);
         this.playlistName = playlistName;
     }
 
-    public int getPlaylistId() {
-        return playlistId;
-    }
+    public String getPlaylistName() { return playlistName; }
 
-    public void setPlaylistId(int playlistId) {
-        this.playlistId = playlistId;
-    }
+    public void addSong(Song song) { songs.add(song); }
 
-    public String getPlaylistName() {
-        return playlistName;
-    }
+    public ArrayList<Song> getSongs() { return songs; }
 
-    public void setPlaylistName(String playlistName) {
-        this.playlistName = playlistName;
+    public String showPlaylist() {
+        String result = "Playlist: " + playlistName + "\n";
+        for (int i = 0; i < songs.size(); i++) {
+            result += (i+1) + ". " + songs.get(i).toString() + "\n";
+        }
+        return result;
     }
 }
